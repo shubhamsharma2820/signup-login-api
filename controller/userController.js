@@ -1,6 +1,7 @@
 import bcrypt from 'bcryptjs';
 import jwt from "jsonwebtoken";
 import UserModel from "../models/user.js";
+import nodemailer from 'nodemailer';
 
 const userRegistration = async (req, res) => {
     console.log("RECEIVED event: ", req);
