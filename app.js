@@ -4,6 +4,7 @@ import express from "express";
 import cors from "cors";
 import connectDB from "./config/connectdb.js";
 import userRoutes from "./routes/userRoutes.js";
+import rolesRouters from "./routes/rolesRoutes.js";
 
 const app = express();
 const port = process.env.PORT;
@@ -19,8 +20,11 @@ connectDB(DATABASE_URL);
 // JSON
 app.use(express.json());
 
-// // Load Routes
+// Load Routes
 app.use("/api/user", userRoutes);
+
+// roles Routes
+app.use("/api/roles", rolesRouters);
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);

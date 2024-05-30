@@ -10,7 +10,7 @@ import { userRegistration, userLogin } from "../controller/userController.js";
 // Public Routes
 router.post("/register", userRegistration);
 router.post("/login", userLogin);
-router.post('/', )
+// router.post('/', )
 // router.post(
 //   "/send-reset-password-email",
 //   UserController.sendUserPasswordResetEmail

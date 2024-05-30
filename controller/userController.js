@@ -5,7 +5,7 @@ import nodemailer from 'nodemailer';
 
 const userRegistration = async (req, res) => {
     console.log("RECEIVED event: ", req);
-  const { name, email, password, contact_number} = req.body;
+  const { name, email, password, phone_number} = req.body;
   try {
     const user = await UserModel.findOne({ email: email });
     if (user) {
@@ -14,7 +14,7 @@ const userRegistration = async (req, res) => {
         .json({ status: "failed", message: "Email already exists" });
     }
 
-    if (!name || !email || !password || !contact_number) {
+    if (!name || !email || !password || !phone_number) {
       return res
         .status(400)
         .json({ status: "failed", message: "All fields are required" });
