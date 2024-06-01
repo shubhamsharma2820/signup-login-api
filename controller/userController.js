@@ -1,11 +1,11 @@
 import bcrypt from 'bcryptjs';
 import jwt from "jsonwebtoken";
 import UserModel from "../models/user.js";
-import nodemailer from 'nodemailer';
+// import nodemailer from 'nodemailer';
 
 const userRegistration = async (req, res) => {
     console.log("RECEIVED event: ", req);
-  const { name, email, password, phone_number} = req.body;
+  const { name, email, password, phoneNumber} = req.body;
   try {
     const user = await UserModel.findOne({ email: email });
     if (user) {
@@ -14,7 +14,7 @@ const userRegistration = async (req, res) => {
         .json({ status: "failed", message: "Email already exists" });
     }
 
-    if (!name || !email || !password || !phone_number) {
+    if (!name || !email || !password || !phoneNumber) {
       return res
         .status(400)
         .json({ status: "failed", message: "All fields are required" });
